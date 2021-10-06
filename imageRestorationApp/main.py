@@ -10,7 +10,7 @@
 import sys
 # PyQt5 libraries are used for GUI
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFileDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFileDialog, QDialog
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt                                                                                              
 
@@ -174,7 +174,7 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         if not (np.array_equal(self.originalImage, np.array([0])) or np.array_equal(self.currentImage, np.array([0]))):
             # open a new Open Image dialog box to select original image
             open_image_window = QFileDialog()
-            image_path = QFileDialog.getOpenFileName \
+            image_path, _ = QFileDialog.getOpenFileName \
                 (open_image_window, 'Select original image', '/')
 
             # check if image path is not null or empty
@@ -201,7 +201,7 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
     def open_image(self):
         # open a new Open Image dialog box and capture path of file selected
         open_image_window = QFileDialog()
-        image_path = QFileDialog.getOpenFileName\
+        image_path, _ = QFileDialog.getOpenFileName\
             (open_image_window, 'Open Image', '/')
 
         # check if image path is not null or empty
