@@ -54,10 +54,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         self.ui.buttonInv.clicked.connect(lambda: self.call_truncated_inverse_filter())
         self.ui.buttonWeiner.clicked.connect(lambda: self.call_weiner_filter())
         self.ui.buttonCLS.clicked.connect(lambda: self.call_constrained_ls_filter())
-        self.ui.buttonPSNR.clicked.connect(lambda: self.calculate_psnr())
-        self.ui.buttonSSIM.clicked.connect(lambda: self.calculate_ssim())
-        self.ui.buttonTrueImage.clicked.connect(lambda: self.set_true_image())
-        self.ui.buttonClearTrueImage.clicked.connect(lambda: self.reset_true_image())
 
         self.ui.comboBoxKernel.currentIndexChanged.connect(lambda: self.displayKernel())
 
@@ -138,57 +134,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
                     self.calculate_ssim()
             else:
                 self.ui.input_gamma.setStyleSheet("background-color: red;")
-
-    # calls the compute ssim function for input and output image
-    def calculate_ssim(self):
-        if not (np.array_equal(self.originalImage, np.array([0])) or np.array_equal(self.currentImage, np.array([0]))):
-
-            if np.array_equal(self.trueImage, np.array([0])):
-                self.set_true_image()
-
-            if not np.array_equal(self.trueImage, np.array([0])):
-                # compute ssim for input and output images
-                ssim_in = ir.ssim(self.trueImage, self.originalImage)
-                ssim_out = ir.ssim(self.trueImage, self.currentImage)
-                # display ssim values
-                self.ui.label_og_ssim.setText(str(ssim_in))
-                self.ui.label_res_ssim.setText(str(ssim_out))
-
-    # calls the compute psnr function for input and output image
-    def calculate_psnr(self):
-        if not (np.array_equal(self.originalImage, np.array([0])) or np.array_equal(self.currentImage, np.array([0]))):
-
-            if np.array_equal(self.trueImage, np.array([0])):
-                self.set_true_image()
-
-            if not np.array_equal(self.trueImage, np.array([0])):
-                # compute psnr for input and output images
-                psnr_in = ir.psnr(self.trueImage, self.originalImage)
-                psnr_out = ir.psnr(self.trueImage, self.currentImage)
-                # display psnr values
-                self.ui.label_og_psnr.setText(str(psnr_in))
-                self.ui.label_res_psnr.setText(str(psnr_out))
-
-    # open true image file
-    def set_true_image(self):
-        if not (np.array_equal(self.originalImage, np.array([0])) or np.array_equal(self.currentImage, np.array([0]))):
-            # open a new Open Image dialog box to select original image
-            open_image_window = QFileDialog()
-            image_path, _ = QFileDialog.getOpenFileName \
-                (open_image_window, 'Select original image', '/')
-
-            # check if image path is not null or empty
-            if image_path:
-                # read original image
-                self.trueImage = cv2.imread(image_path, 1)
-
-    # clear the current true image
-    def reset_true_image(self):
-        self.trueImage = [0]
-        self.ui.label_og_psnr.setText('--')
-        self.ui.label_res_psnr.setText('--')
-        self.ui.label_og_ssim.setText('--')
-        self.ui.label_res_ssim.setText('--')
 
     # read the selected blur kernel from kernels folder
     def get_blur_kernel(self):
@@ -334,10 +279,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         self.ui.buttonInv.setEnabled(True)
         self.ui.buttonWeiner.setEnabled(True)
         self.ui.buttonCLS.setEnabled(True)
-        self.ui.buttonPSNR.setEnabled(True)
-        self.ui.buttonSSIM.setEnabled(True)
-        self.ui.buttonTrueImage.setEnabled(True)
-        self.ui.buttonClearTrueImage.setEnabled(True)
 
         self.ui.comboBoxKernel.setEnabled(True)
         self.displayKernel()
@@ -350,11 +291,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         self.ui.input_K.clear()
         self.ui.input_gamma.clear()
 
-        self.ui.label_og_psnr.setText('--')
-        self.ui.label_res_psnr.setText('--')
-        self.ui.label_og_ssim.setText('--')
-        self.ui.label_res_ssim.setText('--')
-
     # Function to disable all buttons and sliders
     def disableAll(self):
         self.ui.buttonSave.setEnabled(False)
@@ -362,11 +298,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         self.ui.buttonInv.setEnabled(False)
         self.ui.buttonWeiner.setEnabled(False)
         self.ui.buttonCLS.setEnabled(False)
-        self.ui.buttonPSNR.setEnabled(False)
-        self.ui.buttonSSIM.setEnabled(False)
-        self.ui.buttonTrueImage.setEnabled(False)
-        self.ui.buttonClearTrueImage.setEnabled(False)
-
         self.ui.comboBoxKernel.setEnabled(False)
 
         self.ui.input_radius.setEnabled(False)
@@ -376,11 +307,6 @@ class ImageRestorationClass(QtWidgets.QMainWindow):
         self.ui.input_radius.clear()
         self.ui.input_K.clear()
         self.ui.input_gamma.clear()
-
-        self.ui.label_og_psnr.setText('--')
-        self.ui.label_res_psnr.setText('--')
-        self.ui.label_og_ssim.setText('--')
-        self.ui.label_res_ssim.setText('--')
 
 
 # initialize the ImageEditorClass and run the application

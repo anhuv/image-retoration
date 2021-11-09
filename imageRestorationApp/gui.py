@@ -6,7 +6,7 @@
 # __status__ = "Development"
 # ---------------------------------------------------------------#
 
-# This code was generated using QT4 Desginer
+# This code was generated using QT5 Desginer
 # Only few modifications were done on this code
 
 # PyQt5 libraries are used for GUI
@@ -216,42 +216,13 @@ class ImageRestorationGuiClass(object):
         self.line_6.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_6.setObjectName(_fromUtf8("line_6"))
         self.verticalLayout.addWidget(self.line_6)
-        self.buttonPSNR = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.buttonPSNR.sizePolicy().hasHeightForWidth())
-        self.buttonPSNR.setSizePolicy(sizePolicy)
-        self.buttonPSNR.setObjectName(_fromUtf8("buttonPSNR"))
-        self.verticalLayout.addWidget(self.buttonPSNR)
-        self.buttonSSIM = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.buttonSSIM.sizePolicy().hasHeightForWidth())
-        self.buttonSSIM.setSizePolicy(sizePolicy)
-        self.buttonSSIM.setObjectName(_fromUtf8("buttonSSIM"))
-        self.verticalLayout.addWidget(self.buttonSSIM)
-
-        self.line_24 = QtWidgets.QFrame(self.centralwidget)
-        self.line_24.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_24.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_24.setObjectName(_fromUtf8("line_24"))
-        self.verticalLayout.addWidget(self.line_24)
-        self.buttonTrueImage = QtWidgets.QPushButton(self.centralwidget)
-        self.buttonTrueImage.setObjectName(_fromUtf8("buttonTrueImage"))
-        self.verticalLayout.addWidget(self.buttonTrueImage)
-        self.buttonClearTrueImage = QtWidgets.QPushButton(self.centralwidget)
-        self.buttonClearTrueImage.setObjectName(_fromUtf8("buttonClearTrueImage"))
-        self.verticalLayout.addWidget(self.buttonClearTrueImage)
 
         self.line_11 = QtWidgets.QFrame(self.centralwidget)
         self.line_11.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_11.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_11.setObjectName(_fromUtf8("line_11"))
         self.verticalLayout.addWidget(self.line_11)
-        # spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        # self.verticalLayout.addItem(spacerItem)
+    
         self.horizontalLayout_3.addLayout(self.verticalLayout)
         self.line_7 = QtWidgets.QFrame(self.centralwidget)
         self.line_7.setFrameShape(QtWidgets.QFrame.VLine)
@@ -417,7 +388,7 @@ class ImageRestorationGuiClass(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "EE610_ImageRestoration", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Image Restoration", None))
         self.buttonOpen.setText(_translate("MainWindow", "Open", None))
         self.buttonSave.setText(_translate("MainWindow", "Save", None))
         self.labelBlurName.setText(_translate("MainWindow", "Choose Blur Kernel", None))
@@ -436,20 +407,8 @@ class ImageRestorationGuiClass(object):
         self.buttonCLS.setText(_translate("MainWindow", "Constrained LS Filter", None))
         self.label100.setText(_translate("MainWindow", "Select gamma: ", None))
         self.input_gamma.setPlaceholderText(_translate("MainWindow", "Enter gamma", None))
-        self.buttonPSNR.setText(_translate("MainWindow", "Compute PSNR", None))
-        self.buttonSSIM.setText(_translate("MainWindow", "Compute SSIM", None))
-        self.buttonTrueImage.setText(_translate("MainWindow", "Load true image", None))
-        self.buttonClearTrueImage.setText(_translate("MainWindow", "Clear true image", None))
         self.label_7.setText(_translate("MainWindow", "Original Image", None))
         self.label_6.setText(_translate("MainWindow", "Restored Image", None))
-        self.label_88.setText(_translate("MainWindow", "PSNR : ", None))
-        self.label_og_psnr.setText(_translate("MainWindow", "--", None))
-        self.label_5.setText(_translate("MainWindow", "SSIM : ", None))
-        self.label_og_ssim.setText(_translate("MainWindow", "--", None))
-        self.label_2.setText(_translate("MainWindow", "PSNR : ", None))
-        self.label_res_psnr.setText(_translate("MainWindow", "--", None))
-        self.label_12.setText(_translate("MainWindow", "SSIM : ", None))
-        self.label_res_ssim.setText(_translate("MainWindow", "--", None))
         self.actionOpen.setText(_translate("MainWindow", "Open", None))
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionQuit.setText(_translate("MainWindow", "Quit", None))
