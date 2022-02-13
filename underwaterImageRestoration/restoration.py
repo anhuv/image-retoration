@@ -162,7 +162,7 @@ class Restoration():
 
 
 if __name__ == '__main__':
-    index = '7'
+    index = '1'
     img = cv2.imread('img/'+index+'.jpg') 
     scale_percent = 100 # percent of original size
     dim0 = (img.shape[1], img.shape[0])
